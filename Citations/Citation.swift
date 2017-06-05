@@ -33,8 +33,8 @@ class Citation {
     return publisher
   }()
 
-  lazy var publicationYear: Int =  {
-    var publicationYear = 1900
+  lazy var publicationYear: String =  {
+    var publicationYear = ""
 
     for key in (self.metadata?.keys)! {
       if (key == "published") {
@@ -47,7 +47,7 @@ class Citation {
 
           let date = RFC339Formatter.date(from: (self.metadata?[key])! as! String)
           let calendar = Calendar.current
-          publicationYear = calendar.component(.year, from: date!)
+          publicationYear = String(calendar.component(.year, from: date!))
         }
 
         break
@@ -112,7 +112,7 @@ class Citation {
     return title
   }()
 
-  var accessedBy = "Accessed by SimplyE application http://www.librarysimplified.org"
+  var accessedBy = "Accessed by SimplyE http://www.librarysimplified.org"
 
   // currentDate is not lazy computed because it must be re-computed each time to get the current date
   var currentDate: String {
@@ -128,41 +128,76 @@ class Citation {
 
   func APAFormat() -> String
   {
-    var APACitation = "Could not Create Citation in APA format"
+    var citation = "Could not Create Citation in APA format"
 
     if (self.metadata != nil) {
-      APACitation = "\(authors). (\(publicationYear)). \(title). \(publisher). \(distributor). \(accessedBy)."
+      let elements = [authors, publicationYear, title, publisher, distributor, accessedBy]
+      citation = ""
+
+      for element in elements {
+
+        if element != "" {
+          if element == publicationYear {
+            citation += "(\(element)) "
+          } else {
+            citation += "\(element). "
+          }
+        }
+
+      }
+
     }
-    return APACitation
+    return citation
   }
   
   func MLAFormat() -> (fullCitation: String, textToItalicize: String, positionToStartItalics: Int)
   {
-    var MLACitation = "Could not Create Citation in MLA format"
+    var citation = "Could not Create Citation in MLA format"
     var charactersToTitle = 0
     
     if (self.metadata != nil) {
-      MLACitation = ""
-      MLACitation = "\(authors). "
-      charactersToTitle = MLACitation.characters.count
-      MLACitation += "\(title). \(publisher). \(distributor). \(accessedBy), \(currentDate)."
+      let elements = [authors, title, publisher, distributor, accessedBy, currentDate]
+      citation = ""
+
+      for element in elements {
+
+        if element != "" {
+          citation += "\(element). "
+
+          if element == authors {
+            charactersToTitle = citation.characters.count
+          }
+        }
+
+      }
+
     }
-    return (MLACitation, title, charactersToTitle)
+    return (citation, title, charactersToTitle)
   }
   
   func ChicagoFormat() -> (fullCitation: String, textToItalicize: String, positionToStartItalics: Int)
   {
-    var ChicagoCitation = "Could not Create Citation in Chicago format"
+    var citation = "Could not Create Citation in Chicago format"
     var charactersToTitle = 0
 
     if (self.metadata != nil) {
-      ChicagoCitation = ""
-      ChicagoCitation = "\(authors). "
-      charactersToTitle = ChicagoCitation.characters.count
-      ChicagoCitation += "\(title). \(publicationYear). \(publisher). \(distributor). \(accessedBy)."
-      
+      let elements = [authors, title, publicationYear, publisher, distributor, accessedBy]
+      citation = ""
+
+      for element in elements {
+
+        if element != "" {
+          citation += "\(element). "
+
+          if element == authors {
+            charactersToTitle = citation.characters.count
+          }
+        }
+
+      }
+
     }
-    return (ChicagoCitation, title, charactersToTitle)
+    return (citation, title, charactersToTitle)
   }
 
 }
