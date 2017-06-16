@@ -18,6 +18,11 @@ class ViewController: UIViewController {
 
     let citationsViewController = sb.instantiateViewController(withIdentifier: "Citations") as! CitationsViewController
 
+    // The Close button is displayed by default on the CitationsViewController
+    // Uncomment this line of code if you want to hide the Close button
+    // (ie, if there is already a back button in the navigation controller to go back)
+    //citationsViewController.hideClose = true
+
     citationsViewController.metadata = BookMetadata.dictionary()
 
     self.present(citationsViewController, animated: true, completion: nil)

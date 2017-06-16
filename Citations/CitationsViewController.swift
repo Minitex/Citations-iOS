@@ -13,12 +13,13 @@ public class CitationsViewController: UIViewController {
 
   @IBOutlet weak var segmentControl: UISegmentedControl!
   @IBOutlet weak var citationLabel: UILabel!
+  @IBOutlet weak var closeButton: UIButton!
   
   @IBAction func didSelectSegment(_ sender: Any) {
     segmentControlAction()
   }
-  
-  @IBAction func didTapCancel(_ sender: Any) {
+
+  @IBAction func didTapClose(_ sender: Any) {
     self.dismiss(animated: true, completion: nil)
   }
   
@@ -36,9 +37,15 @@ public class CitationsViewController: UIViewController {
 
   fileprivate var citation: Citation?
   public var metadata: [String: AnyObject]?
+  public var hideClose = false
 
   public override func viewDidLoad() {
     super.viewDidLoad()
+
+    if self.hideClose == true {
+      closeButton.isHidden = true
+      closeButton.isEnabled = false
+    }
 
     if (self.metadata != nil) {
       citation = Citation(metadata: metadata!)

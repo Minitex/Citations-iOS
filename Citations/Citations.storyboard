@@ -28,15 +28,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgS-Sj-RpS">
-                                <rect key="frame" x="248.5" y="553" width="48" height="30"/>
-                                <state key="normal" title="Share"/>
-                                <connections>
-                                    <action selector="didTapShare:" destination="4px-f9-nwA" eventType="touchUpInside" id="fXO-13-YBM"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4V7-uW-Ydd">
-                                <rect key="frame" x="90.5" y="64" width="194" height="29"/>
+                                <rect key="frame" x="91" y="64" width="194" height="29"/>
                                 <segments>
                                     <segment title="Chicago"/>
                                     <segment title="MLA"/>
@@ -46,33 +39,40 @@
                                     <action selector="didSelectSegment:" destination="4px-f9-nwA" eventType="valueChanged" id="vh5-ym-q2N"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oi9-z4-yKb">
-                                <rect key="frame" x="90.5" y="553.5" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oi9-z4-yKb">
+                                <rect key="frame" x="168" y="553" width="39" height="30"/>
+                                <state key="normal" title="Close"/>
                                 <connections>
-                                    <action selector="didTapCancel:" destination="4px-f9-nwA" eventType="touchUpInside" id="IkM-la-SoY"/>
+                                    <action selector="didTapClose:" destination="4px-f9-nwA" eventType="touchUpInside" id="Iax-xh-yzt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgS-Sj-RpS">
+                                <rect key="frame" x="167" y="496" width="40" height="30"/>
+                                <state key="normal" title="Share"/>
+                                <connections>
+                                    <action selector="didTapShare:" destination="4px-f9-nwA" eventType="touchUpInside" id="fXO-13-YBM"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Oi9-z4-yKb" firstAttribute="leading" secondItem="4V7-uW-Ydd" secondAttribute="leading" id="GKq-5L-QqD"/>
+                            <constraint firstItem="Oi9-z4-yKb" firstAttribute="centerX" secondItem="eGk-Oi-3PK" secondAttribute="centerX" id="5NY-93-MHn"/>
                             <constraint firstItem="THz-2W-b8L" firstAttribute="leading" secondItem="eGk-Oi-3PK" secondAttribute="leadingMargin" constant="21" id="HJF-vc-9Dx"/>
-                            <constraint firstItem="f8V-lM-QaC" firstAttribute="top" secondItem="wgS-Sj-RpS" secondAttribute="bottom" constant="40" id="QPy-kc-P1n"/>
-                            <constraint firstItem="wgS-Sj-RpS" firstAttribute="width" secondItem="Oi9-z4-yKb" secondAttribute="width" id="Uwn-hZ-7pg"/>
+                            <constraint firstItem="Oi9-z4-yKb" firstAttribute="top" secondItem="wgS-Sj-RpS" secondAttribute="bottom" constant="27" id="Rdt-eR-MYw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="THz-2W-b8L" secondAttribute="trailing" constant="35" id="Zal-HC-7qS"/>
                             <constraint firstItem="4V7-uW-Ydd" firstAttribute="centerX" secondItem="eGk-Oi-3PK" secondAttribute="centerX" id="bx6-76-EmV"/>
                             <constraint firstItem="THz-2W-b8L" firstAttribute="top" secondItem="4V7-uW-Ydd" secondAttribute="bottom" constant="15" id="eEu-dA-Eqq"/>
                             <constraint firstItem="f8V-lM-QaC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="THz-2W-b8L" secondAttribute="bottom" constant="40" id="hg9-Ck-3ft"/>
-                            <constraint firstItem="Oi9-z4-yKb" firstAttribute="baseline" secondItem="wgS-Sj-RpS" secondAttribute="baseline" id="jt6-LO-vvV"/>
+                            <constraint firstItem="f8V-lM-QaC" firstAttribute="top" secondItem="Oi9-z4-yKb" secondAttribute="bottom" constant="40" id="hxd-l8-73Z"/>
                             <constraint firstItem="4V7-uW-Ydd" firstAttribute="top" secondItem="ong-tb-rId" secondAttribute="bottom" constant="44" id="mgs-Gk-mm4"/>
-                            <constraint firstItem="wgS-Sj-RpS" firstAttribute="leading" secondItem="Oi9-z4-yKb" secondAttribute="trailing" constant="110" id="z9Q-62-6LK"/>
+                            <constraint firstItem="wgS-Sj-RpS" firstAttribute="centerX" secondItem="eGk-Oi-3PK" secondAttribute="centerX" id="zZ0-ax-mW2"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="citationLabel" destination="THz-2W-b8L" id="RSA-pZ-aKO"/>
+                        <outlet property="closeButton" destination="Oi9-z4-yKb" id="H4l-9a-c3r"/>
                         <outlet property="segmentControl" destination="4V7-uW-Ydd" id="Z6s-8e-bEi"/>
                     </connections>
                 </viewController>
