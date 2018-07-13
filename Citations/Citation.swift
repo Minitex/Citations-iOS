@@ -165,7 +165,7 @@ class Citation {
           citation += "\(element). "
 
           if element == authors {
-            charactersToTitle = citation.characters.count
+            charactersToTitle = citation.count
           }
         }
 
@@ -190,7 +190,7 @@ class Citation {
           citation += "\(element). "
 
           if element == authors {
-            charactersToTitle = citation.characters.count
+            charactersToTitle = citation.count
           }
         }
 

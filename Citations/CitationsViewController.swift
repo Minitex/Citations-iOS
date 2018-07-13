@@ -56,7 +56,7 @@ public class CitationsViewController: UIViewController {
 
   fileprivate func italicizeText(textToItalicize: String, positionToStartItalics: Int) {
     let customString = NSMutableAttributedString(string: citationLabel.text!)
-    customString.addAttribute(NSFontAttributeName, value: UIFont.italicSystemFont(ofSize: 17.0), range: NSRange(location: positionToStartItalics, length: textToItalicize.characters.count))
+    customString.addAttribute(NSAttributedStringKey.font, value: UIFont.italicSystemFont(ofSize: 17.0), range: NSRange(location: positionToStartItalics, length: textToItalicize.count))
     
     citationLabel.attributedText = customString
   }
