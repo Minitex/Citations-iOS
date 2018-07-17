@@ -36,8 +36,8 @@ public class CitationsViewController: UIViewController {
   }
 
   fileprivate var citation: Citation?
-  public var metadata: [String: AnyObject]?
-  public var hideClose = false
+  @objc public var metadata: [String: AnyObject]?
+  @objc public var hideClose = false
 
   public override func viewDidLoad() {
     super.viewDidLoad()
